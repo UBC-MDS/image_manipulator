@@ -14,7 +14,7 @@ def rotate_90(image):
     ...     [4, 5, 6],
     ...     [7, 8, 9]
     ... ]
-    >>> rotated_image = rotate_image_90_degrees(original_image)
+    >>> rotated_image = rotate_90(original_image)
     >>> print(rotated_image)
     [
         [7, 4, 1],
