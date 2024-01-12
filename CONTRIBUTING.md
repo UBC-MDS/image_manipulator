@@ -1,7 +1,14 @@
 # Contributing
 
-Contributions are welcome, and they are greatly appreciated! Every little bit
-helps, and credit will always be given.
+We welcome all contributions to this package!
+They are greatly appreciated, and every little bit helps!
+If you notice a bug, or have a feature request,
+please open up an issue here. 
+If you'd like to contribute a feature or bug fix,
+you can fork our repo and submit a pull request.
+We will review pull requests within 7 days.
+All contributors must abide by our [code of conduct](CONDUCT.md).
+
 
 ## Types of Contributions
 
