@@ -39,7 +39,7 @@ $ pip install image_modifier
 ## Usage
 
 **Importing Image**
-The following code can be used to import an image.
+- The following code can be used to import an image.
 ```bash
 from PIL import Image
 image = Image.open(image_path)
