@@ -10,7 +10,7 @@
 
 *Created by DALL.E*
 
-ImageModifier is a Python package dedicated to providing an intuitive and efficient way to manipulate images. This package focuses on core image processing functions, allowing users to easily modify images through operations like rotating, slicing, adding frame and adjusting RGB channels. The primary goal is to offer a straightforward way for basic yet powerful image transformations, making it a useful tool for image processing.
+ImageModifier is a Python package dedicated to providing an intuitive and efficient way to manipulate images. This package focuses on core image processing functions, allowing users to easily modify images through operations like rotating, slicing, adding frame, and adjusting RGB channels. The primary goal is to offer a straightforward way for basic yet powerful image transformations, making it a useful tool for image processing.
 
 ## Contributors
 
@@ -18,7 +18,7 @@ Chun Li, Celeste Zhao, He Ma, Karan Khubdikar
 
 ## Motivation
 
-ImageModifier offers a streamlined and intuitive approach, making it highly accessible to a wide range of users unlike many complex image processing tools that can be overwhelming for beginners and cumbersome for quick tasks. This package caters to both novices seeking an easy entry point into image manipulation and experienced users looking for a tool to perform quick modifications without the overhead of more complex software. With core functionalities like rotating, slicing, adding frames, and selecting RGB channels, ImageModifier simplifies these common tasks, allowing users to achieve their goals with minimal coding effort.
+ImageModifier offers a streamlined and intuitive approach, making it highly accessible to a wide range of users, unlike many complex image processing tools that can be overwhelming for beginners and cumbersome for quick tasks. This package caters to both novices seeking an easy entry point into image manipulation and experienced users looking for a tool to perform quick modifications without the overhead of more complex software. With core functionalities like rotating, slicing, adding frames, and selecting RGB channels, ImageModifier simplifies these common tasks, allowing users to achieve their goals with minimal coding effort.
 
 ## Functions
 
@@ -38,7 +38,21 @@ $ pip install image_modifier
 
 ## Usage
 
-- TODO
+**Importing Image**
+The following code can be used to import an image.
+```bash
+from PIL import Image
+image = Image.open(image_path)
+```
+image_modifier can be used to modify the image (rotate_90/slice/add_frame/select_channel). Following is an example of how the package can be imported and the functions can be used considering add_frame function as an example:
+
+```bash
+from image_modifier.add_frame import add_frame
+
+framed_image = add_frame(image, frame_width=30, frame_color='blue')
+plt.imshow(framed_image)
+plt.show()
+```
 
 ## Contributing
 
