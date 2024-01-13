@@ -28,7 +28,7 @@ ImageModifier offers a streamlined and intuitive approach, making it highly acce
 
 **slice_image**: Slices a 2D list representing an image into a specified number of horizontal and vertical slices.
 
-**select_channel**: Displays an image with/without a specified RGB channel modification and saves the processed image.
+**select_channel**: Modify an image with/without a specified RGB channel.
 
 ## Installation
 
