@@ -1,4 +1,4 @@
-def add_frame(image_path, frame_width=20, frame_color='black'):
+def add_frame(image, frame_width=20, frame_color='black'):
     """
     Adds a frame to an image loaded from a specified path and returns a modified image as a numpy.ndarray.
 
@@ -7,7 +7,7 @@ def add_frame(image_path, frame_width=20, frame_color='black'):
     as a numpy.ndarray, which can be displayed using matplotlib.
 
     Parameters:
-    image_path (str): The file path of the image to which the frame will be added.
+    image_path (numpy.ndarray): An image array in the form of numpy.ndarray, suitable for display with matplotlib.
     frame_width (int, optional): The width of the frame to be added around the image. 
                                  The width is applied equally on all sides of the image. 
                                  Defaults to 20.
@@ -20,7 +20,7 @@ def add_frame(image_path, frame_width=20, frame_color='black'):
 
     Example:
     >>> import matplotlib.pyplot as plt
-    >>> framed_image = add_frame('path/to/image.jpg', frame_width=30, frame_color='blue')
+    >>> framed_image = add_frame(image, frame_width=30, frame_color='blue')
     >>> plt.imshow(framed_image)
     >>> plt.show()
     """
