@@ -24,7 +24,7 @@ ImageModifier offers a streamlined and intuitive approach, making it highly acce
 
 **rotate_90**: Rotate a 2D image represented as a list of lists by 90 degrees clockwise.
 
-**add_frame**: Embellishes an image with a frame, specified by the image path. The `framewidth` adjusts the frame's width.
+**add_frame**: Adds a frame to an image loaded from a specified path and returns a modified image as a numpy.ndarray.
 
 **slice_image**: Slices a 2D list representing an image into a specified number of horizontal and vertical slices.
 
@@ -42,7 +42,7 @@ $ pip install image_modifier
 
 ## Contributing
 
-Interested in contributing? Check out the [contributing guidelines](CONTRIBUTING.md). Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+Interested in contributing? Check out the [contributing guidelines](CONTRIBUTING.md). Please note that this project is released with a [Code of Conduct](CONDUCT.md). By contributing to this project, you agree to abide by its terms.
 
 ## License
 
