@@ -23,7 +23,14 @@ def test_make_borders_colored_default():
     assert result.shape == sample_image.shape
 
 def test_make_borders_colored_custom_color():
-    result = make_borders_colored(sample_image, color_name=(128, 128, 128))
+    border_size = 30  # Assuming a border size of 30 for testing
+    custom_color = (128, 128, 128)
+    result = make_borders_colored(sample_image, border_size, color_name=custom_color)
+
+    assert np.all(result[:border_size, :, :] == custom_color)
+    assert np.all(result[-border_size:, :, :] == custom_color)
+    assert np.all(result[:, :border_size, :] == custom_color)
+    assert np.all(result[:, -border_size:, :] == custom_color)
 
 def test_make_borders_colored_invalid_color():
     with pytest.raises(ValueError):
