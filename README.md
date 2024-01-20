@@ -38,12 +38,57 @@ $ pip install image_modifier
 
 ## Usage
 
-**Importing Image**
+
+#### Setting up the Project
+
+Clone the repository to your local machine:
+
+```bash
+$ git clone https://github.com/UBC-MDS/image_modifier
+$ cd image_modifier/
+```
+
+Create the environment:
+
+```bash
+$ conda env create -f image_modifier.yml
+```
+
+Activate the virtual environment:
+
+```bash
+$ conda activate image_modifier
+```
+
+Install the packages via poetry:
+
+```bash
+$ poetry install
+```
+
+#### Run Unit Tests
+
+To run unit tests to ensure the functionality of the modifications, execute:
+
+```bash
+$ poetry run pytest
+```
+
+To include code coverage reporting, can also run:
+
+```bash
+$ poetry run pytest --cov=image_modifier
+```
+
+#### **Importing Image**
+
 - The following code can be used to import an image.
+
 ```bash
 from PIL import Image
 image = Image.open(image_path)
 ```
+
 image_modifier can be used to modify the image (rotate_90/slice/add_frame/select_channel). Following is an example of how the package can be imported and the functions can be used considering add_frame function as an example:
 
 ```bash
