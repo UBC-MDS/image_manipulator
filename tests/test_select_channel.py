@@ -2,6 +2,8 @@ import numpy as np
 import pytest
 from image_modifier.select_channel import select_channel
 
+# command: pytest tests/test_select_channel.py
+
 # Create a sample image with random values in each channel
 sample_image = np.random.randint(0, 256, (100, 100, 3), dtype=np.uint8)
 
