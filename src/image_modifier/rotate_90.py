@@ -1,3 +1,4 @@
+import numpy as np
 def rotate_90(image):
     """
     Rotate a 2D image represented as a list of lists by 90 degrees clockwise.
@@ -23,3 +24,16 @@ def rotate_90(image):
     ]
 
     """
+    image = np.array(image)
+    
+    if image.size == 0:
+        return image
+
+    rows, cols, channels = image.shape
+    rotated_image = np.empty((cols, rows, channels), dtype=image.dtype)
+
+    for i in range(rows):
+        for j in range(cols):
+            rotated_image[j, rows - 1 - i, :] = image[i, j, :]
+
+    return rotated_image
