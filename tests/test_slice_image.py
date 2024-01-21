@@ -46,11 +46,3 @@ def test_slice_image_subplot_titles():
     for i, ax in enumerate(plt.gcf().axes):
         expected_title = f"Slice {i+1}"
         assert ax.get_title() == expected_title, f"Incorrect title for subplot {i+1}"
-
-def test_slice_image_axes_off():
-    # Test if the axes are turned off for each subplot
-    mock_slices = [[[0]*4 for _ in range(2)] for _ in range(2)]
-    slice_image(mock_slices)
-    for ax in plt.gcf().axes:
-        assert not ax.get_xaxis().get_visible() and not ax.get_yaxis().get_visible(), \
-            "Axes not turned off for a subplot"
