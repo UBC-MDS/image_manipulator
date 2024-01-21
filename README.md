@@ -86,6 +86,8 @@ The following code can be used to import an image.
 
 ```bash
 from PIL import Image
+import numpy as np
+import matplotlib.pyplot as plt
 image = Image.open("src/ubc.jpeg")  # Example for demonstration
 ```
 
