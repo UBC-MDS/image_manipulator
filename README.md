@@ -39,7 +39,7 @@ $ pip install image_modifier
 ## Usage
 
 
-#### Setting up the Project
+### Setting up the Project
 
 Clone the repository to your local machine:
 
@@ -66,7 +66,7 @@ Install the packages via poetry:
 $ poetry install
 ```
 
-#### Run Unit Tests
+### Run Unit Tests
 
 To run unit tests to ensure the functionality of the modifications, execute:
 
@@ -80,20 +80,20 @@ To include code coverage reporting, can also run:
 $ poetry run pytest --cov=image_modifier
 ```
 
-#### **Importing Image**
+### **Importing Image**
 
-- The following code can be used to import an image.
+The following code can be used to import an image.
 
 ```bash
 from PIL import Image
 image = Image.open("src/ubc.jpeg")  # Example for demonstration
 ```
 
-#### **Functionalities of image_modifier**
+### **Function Usage**
 
 image_modifier can be used to modify the image: rotate_90, slice_image, add_frame, select_channel. 
 
-##### **Rotate the image by 90 degree clockwise**
+#### **Rotate the image by 90 degree clockwise**
 
 ```bash
 from image_modifier.rotate_90 import rotate_90
@@ -103,7 +103,7 @@ plt.imshow(rotated_image)
 plt.show()
 ```
 
-##### **Slice the image**
+#### **Slice the image**
 
 ```bash
 from image_modifier.slice_image import slice_image
@@ -111,7 +111,7 @@ from image_modifier.slice_image import slice_image
 slice_image(image, horizontal_slices=2, vertical_slices=2)
 ```
 
-##### **Add frame to the image**
+#### **Add frame to the image**
 
 ```bash
 from image_modifier.add_frame import add_frame
@@ -121,7 +121,7 @@ plt.imshow(framed_image)
 plt.show()
 ```
 
-##### **Select color channel**
+#### **Select color channel**
 
 ```bash
 from image_modifier.select_channel import select_channel
