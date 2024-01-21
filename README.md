@@ -85,10 +85,12 @@ $ poetry run pytest --cov=image_modifier
 The following code can be used to import an image.
 
 ```bash
-from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image
+
 image = Image.open("src/ubc.jpeg")  # Example for demonstration
+image_ary = np.array(image)
 ```
 
 ### **Function Usage**
@@ -118,7 +120,7 @@ slice_image(image, horizontal_slices=2, vertical_slices=2)
 ```bash
 from image_modifier.add_frame import add_frame
 
-framed_image = add_frame(image, border_size=30, color_name='blue')
+framed_image = add_frame(image_ary, border_size=30, color_name='blue')
 plt.imshow(framed_image)
 plt.show()
 ```
@@ -127,9 +129,8 @@ plt.show()
 
 ```bash
 from image_modifier.select_channel import select_channel
-image = np.array(image)
 
-colored_image = select_channel(image, 'r')
+colored_image = select_channel(image_ary, 'r')
 plt.imshow(colored_image)
 plt.show()
 ```
