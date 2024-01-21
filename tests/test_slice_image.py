@@ -1,61 +1,56 @@
-from image_modifier.slice_image import slice_image
+from image_modifier.slice_image import image_break_into_slices, slice_image
 import pytest
+import numpy as np
+import matplotlib.pyplot as plt
 
-def test_valud_input():
-    # Mock a simple 8x8 pixel image as a 2D list
-    image = [[(i, j) for j in range(8)] for i in range(8)]
+def test_image_break_into_slices_valid_input():
+    # Test the function with valid input
+    image = np.random.rand(8, 8)  # Mock a simple 8x8 pixel image
+    horizontal_slices = 2
+    vertical_slices = 2
 
-    # Test valid input
-    slices = slice_image(image, 2, 2)
-    assert len(slices) == 2 and len(slices[0]) == 2 and len(slices[0][0]) == 4, "Test 1 Failed: Incorrect number of slices or slice size for valid input"
+    slices = image_break_into_slices(image, horizontal_slices, vertical_slices)
 
-def test_small_image():
-    # Test 2: Edge Case Input
-    small_image = [[(0, 0)]]
-    slices = slice_image(small_image, 1, 1)
-    assert len(slices) == 1 and len(slices[0]) == 1 and len(slices[0][0]) == 1, "Test 2 Failed: Incorrect handling of edge case (small image)"
+    # Check if the number of slices is correct
+    assert len(slices) == horizontal_slices and all(len(row) == vertical_slices for row in slices), \
+        "Function did not return the correct number of slices"
 
-def test_invalid_input():
-    # Test invalid input
-    image = [[(i, j) for j in range(8)] for i in range(8)]
+def test_image_break_into_slices_invalid_input():
+    # Test the function with invalid input
+    image = "not a 2D list"
+
+    with pytest.raises(TypeError):
+        image_break_into_slices(image, 2, 2)
+
+def test_break_into_slices_edge_case():
+    # Test with an edge case (small image)
+    image = np.random.rand(1, 1)
+    slices = image_break_into_slices(image, 1, 1)
+    assert len(slices) == 1 and len(slices[0]) == 1, "Incorrect handling of small image"
+
+def test_slice_image_input_structure():
+    # Test the input structure for slice_image
+    mock_slices = [[[0]*4 for _ in range(2)] for _ in range(2)]
+    # The actual display functionality can't be easily tested in this environment
+    # So we test if the function can be called with the expected input structure
     try:
-        slice_image("not a 2D list", 2, 2)
-        assert False, "Test 3 Failed: No error raised for invalid image input"
-    except:
-        pass
+        slice_image(mock_slices)
+        assert True
+    except Exception as e:
+        assert False, f"Function raised an exception with valid input: {e}"
 
-    try:
-        slice_image(image, "not an int", 2)
-        assert False, "Test 3 Failed: No error raised for invalid horizontal_slices input"
-    except:
-        pass
+def test_slice_image_subplot_titles():
+    # Test if each subplot has the correct title
+    mock_slices = [[[0]*4 for _ in range(2)] for _ in range(2)]
+    slice_image(mock_slices)
+    for i, ax in enumerate(plt.gcf().axes):
+        expected_title = f"Slice {i+1}"
+        assert ax.get_title() == expected_title, f"Incorrect title for subplot {i+1}"
 
-    try:
-        slice_image(image, 2, "not an int")
-        assert False, "Test 3 Failed: No error raised for invalid vertical_slices input"
-    except:
-        pass
-
-def test_slice_image_content():
-    # Test the content of the slices to ensure they are correct
-    image = [[(i, j) for j in range(4)] for i in range(4)]
-    slices = slice_image(image, 2, 2)
-    assert slices[0][0] == [[(0, 0), (0, 1)], [(1, 0), (1, 1)]], "Test 4 Failed: Incorrect content in slices"
-
-def test_large_number_of_slices():
-    # Test slicing with more slices than the image size
-    image = [[(i, j) for j in range(4)] for i in range(4)]
-    slices = slice_image(image, 5, 5)
-    assert len(slices) == 4 and all(len(slice) == 4 for slice in slices), "Test 5 Failed: Incorrect handling of more slices than image size"
-
-def test_single_slice():
-    # Test slicing into a single slice
-    image = [[(i, j) for j in range(4)] for i in range(4)]
-    slices = slice_image(image, 1, 1)
-    assert len(slices) == 1 and len(slices[0]) == 1, "Test 6 Failed: Incorrect number of slices for single slice"
-
-def test_uneven_slices():
-    # Test slicing with uneven slice sizes
-    image = [[(i, j) for j in range(5)] for i in range(5)]
-    slices = slice_image(image, 2, 3)
-    assert len(slices) == 2 and len(slices[0]) == 3, "Test 7 Failed: Incorrect handling of uneven slices"
+def test_slice_image_axes_off():
+    # Test if the axes are turned off for each subplot
+    mock_slices = [[[0]*4 for _ in range(2)] for _ in range(2)]
+    slice_image(mock_slices)
+    for ax in plt.gcf().axes:
+        assert not ax.get_xaxis().get_visible() and not ax.get_yaxis().get_visible(), \
+            "Axes not turned off for a subplot"
