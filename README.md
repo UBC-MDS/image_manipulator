@@ -86,16 +86,49 @@ $ poetry run pytest --cov=image_modifier
 
 ```bash
 from PIL import Image
-image = Image.open(image_path)
+image = Image.open("src/ubc.jpeg")  # Example for demonstration
 ```
 
-image_modifier can be used to modify the image (rotate_90/slice/add_frame/select_channel). Following is an example of how the package can be imported and the functions can be used considering add_frame function as an example:
+#### **Functionalities of image_modifier**
+
+image_modifier can be used to modify the image: rotate_90, slice_image, add_frame, select_channel. 
+
+##### **Rotate the image by 90 degree clockwise**
+
+```bash
+from image_modifier.rotate_90 import rotate_90
+
+rotated_image = rotate_90(image)
+plt.imshow(rotated_image)
+plt.show()
+```
+
+##### **Slice the image**
+
+```bash
+from image_modifier.slice_image import slice_image
+
+slice_image(image, horizontal_slices=2, vertical_slices=2)
+```
+
+##### **Add frame to the image**
 
 ```bash
 from image_modifier.add_frame import add_frame
 
-framed_image = add_frame(image, frame_width=30, frame_color='blue')
+framed_image = add_frame(image, border_size=30, color_name='blue')
 plt.imshow(framed_image)
+plt.show()
+```
+
+##### **Select color channel**
+
+```bash
+from image_modifier.select_channel import select_channel
+image = np.array(image)
+
+colored_image = select_channel(image, 'r')
+plt.imshow(colored_image)
 plt.show()
 ```
 
