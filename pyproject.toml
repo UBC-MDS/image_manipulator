@@ -5,9 +5,7 @@ description = "Performs simple image modifications"
 authors = ["Karan Khubdikar, Celeste Zhao, He Ma, Chun Li"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/UBC-MDS/image_modifier"
-repository = "https://github.com/UBC-MDS/image_modifier"
-documentation = 'https://image_modifier.readthedocs.io'
+
 
 [tool.poetry.dependencies]
 python = ">=3.9"
