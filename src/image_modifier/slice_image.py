@@ -25,6 +25,16 @@ def image_break_into_slices(image, horizontal_slices, vertical_slices):
     
     This will return a list with 4 sublists (2x2 grid), each sublist containing a numpy array for a 4x4 pixel slice.
     """
+    # Check inputs
+    if not isinstance(image, np.ndarray):
+        raise TypeError("The 'image' should be a numpy.ndarray.")
+    if len(image.shape) != 3:
+        raise ValueError("The 'image' should be a 3D array.")
+    if not (isinstance(horizontal_slices, int) and isinstance(vertical_slices, int)):
+        raise TypeError("Both 'horizontal_slices' and 'vertical_slices' should be integers.")
+    if horizontal_slices <= 0 or vertical_slices <= 0:
+        raise ValueError("Both 'horizontal_slices' and 'vertical_slices' should be greater than 0.")
+    
     # Calculate the height and width of the image
     image_height = len(image)
     image_width = len(image[0]) if image_height > 0 else 0
