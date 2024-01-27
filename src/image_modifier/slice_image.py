@@ -3,29 +3,28 @@ import matplotlib.pyplot as plt
 
 def image_break_into_slices(image, horizontal_slices, vertical_slices):
     """
-    Slices an image into a specified number of horizontal and vertical slices.
+    Slices an image into smaller sections (slices) based on specified horizontal and vertical divisions.
+
+    This function segments an image array into smaller rectangular portions. The image is divided into a grid
+    defined by the number of horizontal and vertical slices. Each portion of the grid corresponds to a slice.
 
     Parameters:
-    image (list of list): A jpeg image.
-    horizontal_slices (int): The number of horizontal slices to divide the image into.
-    vertical_slices (int): The number of vertical slices to divide the image into.
+        image (numpy.ndarray): The image to be divided, represented as a 3D RGB array.
+        horizontal_slices (int): The number of slices along the horizontal axis.
+        vertical_slices (int): The number of slices along the vertical axis.
 
     Returns:
-    list of list of list: A 3D list representing the sliced image. 
-    Each element in the outer list represents a row of slices,
-    and each slice is represented as a 2D list of pixel data.
+        list[list[numpy.ndarray]]: A list where each sublist contains numpy arrays representing horizontal slices.
+        The overall structure represents the entire sliced image.
 
     Example:
     --------
-    Given a 2D list representing an image with 8x8 pixels:
+    Given a numpy array representing an 8x8 pixel image:
     
-    >>> slices = slice_image(image, 2, 2)
+    >>> slices = image_break_into_slices(image, 2, 2)
     
-    This will return a 3D list which contains four 'slices', each being a 2D list representing a 4x4 pixel area.
+    This will return a list with 4 sublists (2x2 grid), each sublist containing a numpy array for a 4x4 pixel slice.
     """
-    # Convert the input image into a 2D list
-    image = np.array(image)
-
     # Calculate the height and width of the image
     image_height = len(image)
     image_width = len(image[0]) if image_height > 0 else 0
@@ -53,34 +52,40 @@ def image_break_into_slices(image, horizontal_slices, vertical_slices):
 
             # Create the slice as a 2D list
             slice = [row[left:right] for row in image[top:bottom]]
-            row.append(slice)
+            row.append(np.array(slice))
         slices.append(row)
 
     return slices
     
 def slice_image(image, horizontal_slices=2, vertical_slices=2):
     """
-    Display a grid of image slices in a matplotlib subplot.
+    Visualizes slices of an image in a grid format using matplotlib and returns the slices.
 
-    This function takes a nested list of image slices (where each slice is a 2D array-like structure) 
-    and displays each slice in a grid format using matplotlib. The grid dimensions are determined 
-    by the number of rows and columns in the nested list.
+    This function first uses `image_break_into_slices` to divide the image into smaller sections and then 
+    displays these slices in a grid layout using matplotlib. Each slice is shown in a subplot with its position in the grid.
 
     Parameters:
-    slices (list of list): A nested list where each inner list represents a row of image slices, 
-    and each slice is a 2D list or array-like structure containing pixel data.
-
-    The function first flattens the nested list for processing, then sets up a matplotlib subplot 
-    grid with dimensions equal to the number of rows and columns in the input nested list. Each 
-    subplot displays an individual image slice with a title indicating its position in the sequence. 
-    Axes are turned off for better visualization.
-
-    Note: This function assumes that the input 'slices' is a rectangular grid (i.e., each row contains 
-    the same number of slices).
+        image (numpy.ndarray): The image to be sliced and displayed.
+        horizontal_slices (int, optional): The number of horizontal divisions for slicing. Default is 2.
+        vertical_slices (int, optional): The number of vertical divisions for slicing. Default is 2.
 
     Returns:
-    None; the function directly displays the plot using matplotlib.
+        list[list[numpy.ndarray]]: A list of numpy arrays, each representing a slice of the original image.
+
+    The function assumes the slices form a rectangular grid and directly displays the plot using matplotlib.
     """
+
+    # Check inputs
+    if not isinstance(image, np.ndarray):
+        raise TypeError("The 'image' should be a numpy.ndarray.")
+    if len(image.shape) != 3:
+        raise ValueError("The 'image' should be a 3D array.")
+    if not (isinstance(horizontal_slices, int) and isinstance(vertical_slices, int)):
+        raise TypeError("Both 'horizontal_slices' and 'vertical_slices' should be integers.")
+    if horizontal_slices <= 0 or vertical_slices <= 0:
+        raise ValueError("Both 'horizontal_slices' and 'vertical_slices' should be greater than 0.")
+
+    # Slice the image
     slices = image_break_into_slices(image, horizontal_slices, vertical_slices)
 
     # Set up the plot dimensions
@@ -101,3 +106,5 @@ def slice_image(image, horizontal_slices=2, vertical_slices=2):
 
     plt.tight_layout()
     plt.show()
+
+    return slices
