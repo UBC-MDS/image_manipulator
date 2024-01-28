@@ -5,8 +5,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/UBC-MDS/image_modifier.svg)](https://github.com/UBC-MDS/image_modifier/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/UBC-MDS/image_modifier.svg)](https://github.com/UBC-MDS/image_modifier/commits/main)
 [![GitHub release](https://img.shields.io/github/release/UBC-MDS/image_modifier.svg)](https://github.com/UBC-MDS/image_modifier/releases)
+[![Documentation Status](https://readthedocs.org/projects/image-modifier/badge/?version=latest)](https://image-modifier.readthedocs.io/en/latest/?badge=latest)
 
-![Created by DALL·E](src/logo.png)
+![Created by DALL·E](docs/logo.png)
 
 *Created by DALL.E*
 
