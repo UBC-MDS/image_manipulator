@@ -112,7 +112,7 @@ plt.imshow(rotated_image)
 ```bash
 from image_modifier.add_frame import add_frame
 
-framed_image = add_frame(image_ary, border_size=30, color_name='blue')
+framed_image = add_frame(image, border_size=30, color_name='blue', overlay=True)
 plt.imshow(framed_image)
 ```
 
