@@ -23,13 +23,13 @@ ImageModifier offers a streamlined and intuitive approach, making it highly acce
 
 ## Functions
 
-**rotate_90**: Rotate a 2D image represented as a list of lists by 90 degrees clockwise.
+**rotate_90**: Rotating a 2D image represented as a list of lists by 90 degrees clockwise.
 
-**add_frame**: Adds a frame to an image loaded from a specified path and returns a modified image as a numpy.ndarray.
+**add_frame**: Adding a frame to an image loaded from a specified path and returns a modified image as a numpy.ndarray.
 
-**slice_image**: Slices a 2D list representing an image into a specified number of horizontal and vertical slices.
+**select_channel**: Modifying an image with/without a specified RGB channel.
 
-**select_channel**: Modify an image with/without a specified RGB channel.
+**slice_image**: Slicing a 2D list representing an image into a specified number of horizontal and vertical slices.
 
 ## Installation
 
@@ -81,9 +81,9 @@ To include code coverage reporting, can also run:
 $ poetry run pytest --cov=image_modifier
 ```
 
-### **Importing Image**
+### **Importing Librariea and Image**
 
-The following code can be used to import an image.
+The following code can be used to import libraries and an image.
 
 ```bash
 import numpy as np
@@ -96,24 +96,15 @@ image_ary = np.array(image)
 
 ### **Function Usage**
 
-image_modifier can be used to modify the image: rotate_90, slice_image, add_frame, select_channel. 
+image_modifier can be used to modify the image: `rotate_90`, `slice_image`, `add_frame`, `select_channel`. 
 
 #### **Rotate the image by 90 degree clockwise**
 
 ```bash
 from image_modifier.rotate_90 import rotate_90
 
-rotated_image = rotate_90(image)
+rotated_image = rotate_90(image_ary)
 plt.imshow(rotated_image)
-plt.show()
-```
-
-#### **Slice the image**
-
-```bash
-from image_modifier.slice_image import slice_image
-
-slice_image(image, horizontal_slices=2, vertical_slices=2)
 ```
 
 #### **Add frame to the image**
@@ -123,7 +114,6 @@ from image_modifier.add_frame import add_frame
 
 framed_image = add_frame(image_ary, border_size=30, color_name='blue')
 plt.imshow(framed_image)
-plt.show()
 ```
 
 #### **Select color channel**
@@ -133,7 +123,14 @@ from image_modifier.select_channel import select_channel
 
 colored_image = select_channel(image_ary, 'r')
 plt.imshow(colored_image)
-plt.show()
+```
+
+#### **Slice the image**
+
+```bash
+from image_modifier.slice_image import slice_image
+
+slices = slice_image(image_ary, horizontal_slices=2, vertical_slices=2)
 ```
 
 ## Contributing
