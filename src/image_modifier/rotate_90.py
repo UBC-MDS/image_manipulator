@@ -1,32 +1,55 @@
 import numpy as np
 def rotate_90(image):
     """
-    Rotate a 2D image represented as a list of lists by 90 degrees clockwise.
+    Rotate an image by 90 degrees clockwise.
 
     Parameters:
-        image (list of lists): A 2D list representing the original image.
+        image: A jpeg image image with 3 channels. (This image is converted to an array for easy manipulation)
 
     Returns:
-        list of lists: A new 2D list representing the rotated image.
+        array: A new 3D array representing the rotated image.
 
     Example:
-    >>> original_image = [
-    ...     [1, 2, 3],
-    ...     [4, 5, 6],
-    ...     [7, 8, 9]
-    ... ]
+    >>> original_image = np.array([[[255, 0, 0],   # Red
+                            [0, 255, 0],   # Green
+                            [0, 0, 255],   # Blue
+                            [255, 255, 0]], # Yellow
+
+                           [[128, 128, 128], # Gray
+                            [255, 127, 0],   # Orange
+                            [0, 255, 255],   # Cyan
+                            [255, 0, 255]]]) # Magenta
     >>> rotated_image = rotate_90(original_image)
     >>> print(rotated_image)
-    [
-        [7, 4, 1],
-        [8, 5, 2],
-        [9, 6, 3]
-    ]
+        
+        np.array([[[128, 128, 128],
+        [255,   0,   0]],
 
+       [[255, 127,   0],
+        [  0, 255,   0]],
+
+       [[  0, 255, 255],
+        [  0,   0, 255]],
+
+       [[255,   0, 255],
+        [255, 255,   0]]])
     """
     image = np.array(image)
+
+     # Check if the input image is empty
     if image.size == 0:
         return image
+
+    # Check if the input image has 3 channels
+    if not isinstance(image, np.ndarray):
+        raise TypeError("The input image must be a NumPy array.")
+
+    if len(image.shape) != 3:
+        raise ValueError("The dimension of the array should be 3.")
+
+    if image.shape[2] != 3:
+        raise ValueError("The input image must be a 3-channel RGB image.")
+    
     rows, cols, channels = image.shape
     rotated_image = np.empty((cols, rows, channels), dtype=image.dtype)
     for i in range(rows):
