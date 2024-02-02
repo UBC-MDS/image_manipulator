@@ -2,6 +2,33 @@
 
 
 
+## v0.0.3 (2024-02-02)
+
+### Fix
+
+* fix: updated rotate function and test cases as per feedback ([`1801568`](https://github.com/UBC-MDS/image_modifier/commit/1801568e5df2131eedf56baed943e78a3352c2b0))
+
+### Unknown
+
+* Merge pull request #63 from UBC-MDS/rotate_updated_feedback
+
+Rotate updated feedback ([`80a65ac`](https://github.com/UBC-MDS/image_modifier/commit/80a65ac7fe959dee6e8fa1d9c3e20203472b7305))
+
+* Updated description of functions ([`dc303b6`](https://github.com/UBC-MDS/image_modifier/commit/dc303b64b7cb932f47b7de369843c045afba01ee))
+
+* Update pyproject.toml ([`353a895`](https://github.com/UBC-MDS/image_modifier/commit/353a895a604e8ef6e81226ea7c877fccc009f41e))
+
+* Merge pull request #62 from UBC-MDS/pyproject_update
+
+Pyproject update ([`b66eb78`](https://github.com/UBC-MDS/image_modifier/commit/b66eb78adface7a630f11f1eafcd58627109654f))
+
+* updated pyproject ([`70aef11`](https://github.com/UBC-MDS/image_modifier/commit/70aef11bb10373c9dc4247886a55cdf5ef3dce7c))
+
+* updated pyproject manually ([`74f6714`](https://github.com/UBC-MDS/image_modifier/commit/74f6714acbb2a6de90f4e63c04ded0263b099899))
+
+* updated release version manually ([`d15d264`](https://github.com/UBC-MDS/image_modifier/commit/d15d264566a3e767613a43633afcf4893050aef3))
+
+
 ## v0.0.2 (2024-02-02)
 
 ### Fix
