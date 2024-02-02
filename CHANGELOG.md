@@ -2,6 +2,29 @@
 
 
 
+## v0.0.2 (2024-02-02)
+
+### Fix
+
+* fix: Feedback on slice_image pytest addressed by peer review about turning off image display and resolving the TclError
+
+Feedback on slice_image pytest addressed by peer review about turning off image display and resolving the TclError ([`5056400`](https://github.com/UBC-MDS/image_modifier/commit/5056400a5f0b44c455eb862dbfd3ac37050c5374))
+
+### Unknown
+
+* Merge pull request #59 from UBC-MDS/slice-3
+
+fix: Feedback on slice_image pytest addressed by peer review about turning off image display and resolving the TclError ([`9f40649`](https://github.com/UBC-MDS/image_modifier/commit/9f40649dd749963a57bff547817efc794978b373))
+
+* updated version for autoincrement on commits ([`82abe0d`](https://github.com/UBC-MDS/image_modifier/commit/82abe0dd6365259733ba10b092f7077d0c63d4d0))
+
+* Merge pull request #51 from UBC-MDS/pyrpoject_update
+
+updated pyproject file ([`740914b`](https://github.com/UBC-MDS/image_modifier/commit/740914beac5a1f61c5ba994a9699ee9bf691f7b2))
+
+* updated pyproject file ([`8285588`](https://github.com/UBC-MDS/image_modifier/commit/8285588462428e64dc87cc79ab55527f2540d4d8))
+
+
 ## v0.0.1 (2024-01-29)
 
 ### Fix
