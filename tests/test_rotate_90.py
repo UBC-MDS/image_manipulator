@@ -6,16 +6,15 @@ import numpy as np
 from image_modifier.rotate_90 import rotate_90
 
 #Creating a Test Image for the test cases
-test_img = [[[245, 112],
-        [ 68, 191]],
+test_img = np.array([[[255, 0, 0],   # Red
+                            [0, 255, 0],   # Green
+                            [0, 0, 255],   # Blue
+                            [255, 255, 0]], # Yellow
 
-       [[ 88, 219],
-        [ 33,  16]],
-
-       [[209, 232],
-        [200,  74]]]
-
-test_img = np.array(test_img)
+                           [[128, 128, 128], # Gray
+                            [255, 127, 0],   # Orange
+                            [0, 255, 255],   # Cyan
+                            [255, 0, 255]]]) # Magenta
 
 rotated_test_img_90 = rotate_90(test_img) # rotating the test image by 90 degrees
 
@@ -31,6 +30,12 @@ def test_check_type(): # Checking the data type of the image
 def test_empty(): # Checking if empty image returns empty image
     test_empty = []
     assert np.array_equal(test_empty, rotate_90(test_empty))
+
+def test_invalid_image(): # Test with a 4D array (invalid shape）
+    invalid_image = np.zeros((100, 100, 3, 1), dtype=np.uint8)
+    with pytest.raises(ValueError):
+        rotate_90(invalid_image)
+
 
 def test_dimension(): # checking dimension after rotation
     assert test_img.shape[0] == rotated_test_img_90.shape[1] # 90 degrees
@@ -52,51 +57,57 @@ def test_dimension(): # checking dimension after rotation
 def test_rotation(): # Checking if the rotation is performed correctly
     
     # checking 90 degree rotation(rotating once)
-    expected_rotated_90 = [[[209, 232],
-        [ 88, 219],
-        [245, 112]],
+    expected_rotated_90 = np.array([[[128, 128, 128],
+        [255,   0,   0]],
 
-       [[200,  74],
-        [ 33,  16],
-        [ 68, 191]]]
-    expected_rotated_90 = np.array(expected_rotated_90)
+       [[255, 127,   0],
+        [  0, 255,   0]],
+
+       [[  0, 255, 255],
+        [  0,   0, 255]],
+
+       [[255,   0, 255],
+        [255, 255,   0]]])
 
     assert np.array_equal(rotate_90(test_img), expected_rotated_90)
 
     # checking 180 degree rotation(rotating twice)
-    expected_rotated_180 = [[[200,  74],
-        [209, 232]],
+    expected_rotated_180 = np.array([[[255,   0, 255],
+        [  0, 255, 255],
+        [255, 127,   0],
+        [128, 128, 128]],
 
-       [[ 33,  16],
-        [ 88, 219]],
-
-       [[ 68, 191],
-        [245, 112]]]
-    expected_rotated_180 = np.array(expected_rotated_180)
+       [[255, 255,   0],
+        [  0,   0, 255],
+        [  0, 255,   0],
+        [255,   0,   0]]])
 
     assert np.array_equal(rotate_90(rotate_90(test_img)), expected_rotated_180)
 
     # checking 270 degree rotation(rotating thrice)
-    expected_rotated_270 = [[[ 68, 191],
-        [ 33,  16],
-        [200,  74]],
+    expected_rotated_270 = np.array([[[255, 255,   0],
+        [255,   0, 255]],
 
-       [[245, 112],
-        [ 88, 219],
-        [209, 232]]]
-    expected_rotated_270 = np.array(expected_rotated_270)
+       [[  0,   0, 255],
+        [  0, 255, 255]],
 
+       [[  0, 255,   0],
+        [255, 127,   0]],
+
+       [[255,   0,   0],
+        [128, 128, 128]]])
+    
     assert np.array_equal(rotate_90(rotate_90(rotate_90(test_img))), expected_rotated_270)
 
     # checking 360 degree rotation(rotating four times)
-    expected_rotated_360 = [[[245, 112],
-        [ 68, 191]],
+    expected_rotated_360 = np.array([[[255,   0,   0],
+        [  0, 255,   0],
+        [  0,   0, 255],
+        [255, 255,   0]],
 
-       [[ 88, 219],
-        [ 33,  16]],
-
-       [[209, 232],
-        [200,  74]]]
-    expected_rotated_360 = np.array(expected_rotated_360)
+       [[128, 128, 128],
+        [255, 127,   0],
+        [  0, 255, 255],
+        [255,   0, 255]]])
 
     assert np.array_equal(test_img, expected_rotated_360) 
