@@ -23,13 +23,13 @@ ImageModifier offers a streamlined and intuitive approach, making it highly acce
 
 ## Functions
 
-**rotate_90**: Rotating a 2D image represented as a list of lists by 90 degrees clockwise.
+**rotate_90**: Rotating an image by 90 degrees clockwise.
 
-**add_frame**: Adding a frame to an image loaded from a specified path and returns a modified image as a numpy.ndarray.
+**add_frame**: Adding a frame to an image.
 
 **select_channel**: Modifying an image with/without a specified RGB channel.
 
-**slice_image**: Slicing a 2D list representing an image into a specified number of horizontal and vertical slices.
+**slice_image**: Slicing an image into a specified number of horizontal and vertical slices.
 
 ## Installation
 
