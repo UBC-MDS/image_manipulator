@@ -67,7 +67,7 @@ def image_break_into_slices(image, horizontal_slices, vertical_slices):
 
     return slices
     
-def slice_image(image, horizontal_slices=2, vertical_slices=2):
+def slice_image(image, horizontal_slices=2, vertical_slices=2, display_images=True):
     """
     Visualizes slices of an image in a grid format using matplotlib and returns the slices.
 
@@ -78,6 +78,7 @@ def slice_image(image, horizontal_slices=2, vertical_slices=2):
         image (numpy.ndarray): The image to be sliced and displayed.
         horizontal_slices (int, optional): The number of horizontal divisions for slicing. Default is 2.
         vertical_slices (int, optional): The number of vertical divisions for slicing. Default is 2.
+        display_images (bool): If True, display the images using matplotlib. Default is True.
 
     Returns:
         list[list[numpy.ndarray]]: A list of numpy arrays, each representing a slice of the original image.
@@ -106,15 +107,19 @@ def slice_image(image, horizontal_slices=2, vertical_slices=2):
     if n_rows == 1 or n_cols == 1:
         axes = np.array(axes).reshape(n_rows, n_cols)
 
-    # Display each slice
+    # Prepare display of each slice
     for i in range(n_rows):
         for j in range(n_cols):
             ax = axes[i, j]
             ax.imshow(slices[i][j])
             ax.set_title(f"Slice {i*n_cols + j + 1}")
             ax.axis('off')
-
     plt.tight_layout()
-    plt.show()
+
+    # Slice display
+    if display_images:
+        plt.show()
+    else:
+        pass
 
     return slices

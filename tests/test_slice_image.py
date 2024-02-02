@@ -1,7 +1,8 @@
 from image_modifier.slice_image import image_break_into_slices, slice_image
 import pytest
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib as plt
+plt.use('Agg')  # To solve TclError
 
 # Tests for image_break_into_slices function
 def test_break_into_slices_valid():
@@ -61,27 +62,28 @@ def test_slice_image_valid():
     test_image = np.random.rand(100, 100, 3)
 
     # Valid input: Even division
-    slices = slice_image(test_image, 2, 2)
+    slices = slice_image(test_image, 2, 2, display_images=False)
+
     assert len(slices) == 2 and len(slices[0]) == 2
 
     # Valid input: Uneven division
-    slices = slice_image(test_image, 3, 2)
+    slices = slice_image(test_image, 3, 2, display_images=False)
     assert len(slices) == 3 and len(slices[0]) == 2
 
     # Valid input: Non-square image
     test_image_2 = np.random.rand(100, 50, 3)
-    slices = slice_image(test_image_2, 10, 5)
+    slices = slice_image(test_image_2, 10, 5, display_images=False)
     assert len(slices) == 10 and len(slices[0]) == 5
 
 def test_slice_image_edge_cases():
     test_image = np.random.rand(5, 5, 3)
 
     # Edge case: More slices than pixels
-    slices = slice_image(test_image, 6, 6)
+    slices = slice_image(test_image, 6, 6, display_images=False)
     assert len(slices) == 5 and len(slices[0]) == 5
 
     # Edge case: One slice
-    slices = slice_image(test_image, 1, 1)
+    slices = slice_image(test_image, 1, 1, display_images=False)
     assert len(slices) == 1 and len(slices[0]) == 1
 
 def test_slice_image_invalid_input():
