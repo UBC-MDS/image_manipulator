@@ -5,7 +5,10 @@ from image_modifier.select_channel import select_channel
 # command: pytest tests/test_select_channel.py
 
 # Create a sample image with random values in each channel
-sample_image = np.random.randint(0, 256, (100, 100, 3), dtype=np.uint8)
+@pytest.fixture
+def sample_image():
+    # Create a new sample image for each test to prevent side effects
+    return np.random.randint(0, 256, (100, 100, 3), dtype=np.uint8)
 
 
 def test_select_channel_with_invalid_image_shape():
@@ -19,7 +22,7 @@ def test_select_channel_with_invalid_image_shape():
         select_channel(invalid_image, 'r', without=True)
 
 
-def test_select_channel_remove_red():
+def test_select_channel_remove_red(sample_image):
     """
     Confirms that the function correctly removes the red channel from the
     image and leaves the other channels unmodified.
@@ -29,9 +32,9 @@ def test_select_channel_remove_red():
     assert np.all(result[:, :, 0] == 0)
     assert np.array_equal(result[:, :, 1:], sample_image[:, :, 1:])
 
-def test_select_channel_remove_green():
+def test_select_channel_remove_green(sample_image):
     """
-    check that the function correctly removes the green channel from the   
+    Check that the function correctly removes the green channel from the   
     image and leaves the other channels unmodified.
     """
     # Check if green channel is removed and other channels are not modified
@@ -39,9 +42,9 @@ def test_select_channel_remove_green():
     assert np.all(result[:, :, 1] == 0)
     assert np.array_equal(result[:, :, [0, 2]], sample_image[:, :, [0, 2]])
 
-def test_select_channel_remove_blue():
+def test_select_channel_remove_blue(sample_image):
     """
-    check that the function correctly removes the blue channel from the   
+    Check that the function correctly removes the blue channel from the   
     image and leaves the other channels unmodified.
     """
 
@@ -50,7 +53,7 @@ def test_select_channel_remove_blue():
     assert np.all(result[:, :, 2] == 0)
     assert np.array_equal(result[:, :, :2], sample_image[:, :, :2])
 
-def test_select_channel_isolate_red():
+def test_select_channel_isolate_red(sample_image):
     """
     Ensures that when the red channel is isolated using the select_channel function,
     the red channel values are preserved and other channels are set to zero.
@@ -60,7 +63,7 @@ def test_select_channel_isolate_red():
     assert np.all(result[:, :, 0] == sample_image[:, :, 0])
     assert np.all(result[:, :, 1:] == 0)
 
-def test_select_channel_isolate_green():
+def test_select_channel_isolate_green(sample_image):
     """
     Ensures that when the green channel is isolated using the select_channel function,
     the green channel values are preserved and other channels are set to zero.
@@ -69,7 +72,7 @@ def test_select_channel_isolate_green():
     assert np.all(result[:, :, 1] == sample_image[:, :, 1])
     assert np.all(result[:, :, [0, 2]] == 0)
 
-def test_select_channel_isolate_blue():
+def test_select_channel_isolate_blue(sample_image):
     """
     Ensures that when the blue channel is isolated using the select_channel function,
     the blue channel values are preserved and other channels are set to zero.
@@ -79,7 +82,7 @@ def test_select_channel_isolate_blue():
     assert np.all(result[:, :, 2] == sample_image[:, :, 2])
     assert np.all(result[:, :, :2] == 0)
 
-def test_select_channel_invalid_channel():
+def test_select_channel_invalid_channel(sample_image):
     """
     Tests that a ValueError is raised when an invalid channel key is provided
     to the select_channel function.
@@ -96,7 +99,7 @@ def test_select_channel_non_numpy_input():
     with pytest.raises(TypeError):
         select_channel([[0, 0, 0]], 'r', without=True)
 
-def test_select_channel_all_channels_removed():
+def test_select_channel_all_channels_removed(sample_image):
     """
     Tests the select_channel function's ability to remove all channels, resulting
     in a completely black image.
