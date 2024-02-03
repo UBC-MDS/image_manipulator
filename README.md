@@ -12,7 +12,7 @@
 
 *Created by DALL.E*
 
-ImageModifier is a Python package dedicated to providing an intuitive and efficient way to manipulate images. This package focuses on core image processing functions, allowing users to easily modify images through operations like rotating, slicing, adding frame, and adjusting RGB channels. The primary goal is to offer a straightforward way for basic yet powerful image transformations, making it a useful tool for image processing.
+ImageModifier is a Python package dedicated to providing an intuitive and efficient way to manipulate JPEG images. This package focuses on core JPEG image processing functions, allowing users to easily modify images through operations like rotating, slicing, adding frame, and adjusting RGB channels. The primary goal is to offer a straightforward way for basic yet powerful JPEG image transformations, making it a useful tool for image processing.
 
 ## Contributors
 
@@ -32,11 +32,9 @@ ImageModifier offers a streamlined and intuitive approach, making it highly acce
 
 **slice_image**: Slicing an image into a specified number of horizontal and vertical slices.
 
-
 ## Documentation
 
 The package documentation, including installation instructions, usage examples and API details, is available on ReadTheDocs and accessible [here](https://image-modifier.readthedocs.io/en/latest).
-
 
 ## Installation
 
@@ -142,10 +140,9 @@ The following code can be used to import libraries and an image in python.
 
 Detailed usage examples can be found [here](https://image-modifier.readthedocs.io/en/latest/example.html).
 
-
 ## Position within the Python ecosystem
 
-ImageModifier bridges the gap between highly complex image processing libraries and the need for straightforward, user-friendly image manipulation tools. Its focus on core image processing functionalities—such as rotating, slicing, adding frames, and adjusting RGB channels. While Python boasts powerful image processing libraries like OpenCV and PIL/Pillow, these can often be overwhelming for beginners or overkill for simple tasks. ImageModifier's simplicity makes it an attractive starting point for newcomers to image processing, as well as a quick and efficient tool for experienced users needing to perform routine tasks without the overhead of more complex libraries.
+ImageModifier bridges the gap between highly complex image processing libraries and the need for straightforward, user-friendly JPEG image manipulation tools. Its focus on core image processing functionalities—such as rotating, slicing, adding frames, and adjusting RGB channels. While Python boasts powerful image processing libraries like [OpenCV](https://opencv.org/) and [PIL/Pillow](https://python-pillow.org/), these can often be overwhelming for beginners or overkill for simple tasks. ImageModifier's simplicity makes it an attractive starting point for newcomers to JPEG image processing, as well as a quick and efficient tool for experienced users needing to perform routine tasks without the overhead of more complex libraries.
 
 ## Contributing
 
