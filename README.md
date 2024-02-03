@@ -8,7 +8,7 @@
 [![Documentation Status](https://readthedocs.org/projects/image-modifier/badge/?version=latest)](https://image-modifier.readthedocs.io/en/latest/?badge=latest)
 [![codecov](https://codecov.io/gh/UBC-MDS/image_modifier/graph/badge.svg?token=Je2mYFYCUP)](https://codecov.io/gh/UBC-MDS/image_modifier)
 
-![Created by DALL·E](https://github.com/UBC-MDS/image_modifier/blob/f9b89b556437eaab10e84b01f8aa59a59cbd0e9d/docs/logo.png)
+![Created by DALL·E](https://raw.githubusercontent.com/UBC-MDS/image_modifier/main/docs/logo.png)
 
 *Created by DALL.E*
 
