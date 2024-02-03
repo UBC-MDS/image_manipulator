@@ -46,9 +46,6 @@ def rotate_90(image):
 
     if len(image.shape) != 3:
         raise ValueError("The dimension of the array should be 3.")
-
-    if image.shape[2] != 3:
-        raise ValueError("The input image must be a 3-channel RGB image.")
     
     rows, cols, channels = image.shape
     rotated_image = np.empty((cols, rows, channels), dtype=image.dtype)
