@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "image_modifier"
-version = "2.0.9"
+version = "2.1.0"
 description = "Performs simple image modifications"
 authors = ["Karan Khubdikar, Celeste Zhao, He Ma, Chun Li"]
 license = "MIT"

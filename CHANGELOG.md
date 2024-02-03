@@ -2,6 +2,29 @@
 
 
 
+## v2.1.0 (2024-02-03)
+
+### Feature
+
+* feat: added PNG support to add_frame based on peer review feedback ([`52dd42e`](https://github.com/UBC-MDS/image_modifier/commit/52dd42e0c891c6a2c57d71dd397f591fbd99e2a1))
+
+### Unknown
+
+* Merge pull request #68 from UBC-MDS/add_frame_png
+
+Add frame png ([`17b016e`](https://github.com/UBC-MDS/image_modifier/commit/17b016e8d66514cb4d851848992f79d7d6a08907))
+
+* saved example notebook under environment ([`2731a38`](https://github.com/UBC-MDS/image_modifier/commit/2731a38637d56e585cd76610e7032c6c63edefbb))
+
+* removed unnecessary outputs ([`32a0959`](https://github.com/UBC-MDS/image_modifier/commit/32a09593b0f172b5d22a6b8210e8ae7eca97cdc8))
+
+* added rainbow demostration with add_frame ([`7c54f69`](https://github.com/UBC-MDS/image_modifier/commit/7c54f69d12440229f88c43b23668f3bfcfc48407))
+
+* updated add_frame function to support PNG ([`039c9bf`](https://github.com/UBC-MDS/image_modifier/commit/039c9bfd4b028c936b6d8968d2a82515c658fcbe))
+
+* updated test script for add_frame ([`7f01cdd`](https://github.com/UBC-MDS/image_modifier/commit/7f01cddaa123fcef5bda00dd2160a24b5ec6d287))
+
+
 ## v2.0.9 (2024-02-03)
 
 ### Unknown
@@ -22,6 +45,8 @@ fix: updated rotate function to raise errors ([`eb6de8b`](https://github.com/UBC
 ### Unknown
 
 * Merge branch &#39;main&#39; of https://github.com/UBC-MDS/image_modifier ([`f34e813`](https://github.com/UBC-MDS/image_modifier/commit/f34e813a7897009a0981f3d48a70564839de8a16))
+
+* added PNG support for add_frame ([`ab45404`](https://github.com/UBC-MDS/image_modifier/commit/ab45404d61400f7df11883ff2e32393fc2a536ee))
 
 
 ## v2.0.7 (2024-02-03)
