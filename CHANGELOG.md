@@ -2,6 +2,17 @@
 
 
 
+## v2.0.8 (2024-02-03)
+
+### Fix
+
+* fix: Add JPEG to the text ([`5f11c3f`](https://github.com/UBC-MDS/image_modifier/commit/5f11c3f913b5872ffb14ba35e9296ebf7ea03c10))
+
+### Unknown
+
+* Merge branch &#39;main&#39; of https://github.com/UBC-MDS/image_modifier ([`f34e813`](https://github.com/UBC-MDS/image_modifier/commit/f34e813a7897009a0981f3d48a70564839de8a16))
+
+
 ## v2.0.7 (2024-02-03)
 
 ### Fix
