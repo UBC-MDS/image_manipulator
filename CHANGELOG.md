@@ -2,11 +2,32 @@
 
 
 
+## v2.0.5 (2024-02-03)
+
+### Fix
+
+* fix: logo display on ReadTheDocs ([`d48839d`](https://github.com/UBC-MDS/image_modifier/commit/d48839dbc6513c6c0c64a7d3fdf7e716b7fa26e9))
+
+### Unknown
+
+* Update README.md ([`f9b89b5`](https://github.com/UBC-MDS/image_modifier/commit/f9b89b556437eaab10e84b01f8aa59a59cbd0e9d))
+
+* Merge pull request #65 from UBC-MDS/pyproject_updated
+
+updated pyproject.toml file ([`544236d`](https://github.com/UBC-MDS/image_modifier/commit/544236d9766132cfc720539f911d1a045e86912d))
+
+* Merge branch &#39;main&#39; into pyproject_updated ([`13da0a3`](https://github.com/UBC-MDS/image_modifier/commit/13da0a3997d5bc464f030794fd5e3f6e54b014c3))
+
+
 ## v2.0.4 (2024-02-03)
 
 ### Fix
 
 * fix: Add the codecov badge ([`555de6f`](https://github.com/UBC-MDS/image_modifier/commit/555de6f172bf38e81260c6eae21ea44d0d29e60c))
+
+### Unknown
+
+* updated pyproject.toml file ([`c23f049`](https://github.com/UBC-MDS/image_modifier/commit/c23f049efa81febfbf38c9d8645b890f2201ebcf))
 
 
 ## v2.0.3 (2024-02-02)
