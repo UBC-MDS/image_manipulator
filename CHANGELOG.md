@@ -2,7 +2,14 @@
 
 
 
-## v0.0.3 (2024-02-02)
+## v2.0.4 (2024-02-03)
+
+### Fix
+
+* fix: Add the codecov badge ([`555de6f`](https://github.com/UBC-MDS/image_modifier/commit/555de6f172bf38e81260c6eae21ea44d0d29e60c))
+
+
+## v2.0.3 (2024-02-02)
 
 ### Fix
 
