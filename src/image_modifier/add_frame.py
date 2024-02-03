@@ -30,19 +30,15 @@ def add_pad(image, border_size=30):
 
 def make_borders_colored(image, border_size=30, color_name="red"):
     """
-    Adds a colored border to all sides of an image.
-
-    This function applies a uniform colored border around the image on all sides 
-    (top, bottom, left, and right). The color of the border can be selected from 
-    predefined colors or specified as an RGB tuple.
+    Adds a colored border to all sides of an image. This function now supports both RGB and RGBA images.
 
     Parameters:
     image (numpy.ndarray): The input image to which the border will be added. 
-                           It should be a 3-dimensional array representing an RGB image.
+                           It should be a 3-dimensional array representing an RGB or RGBA image.
     border_size (int, optional): The thickness of the border to be added to each side of the image. 
                                  Defaults to 30 pixels.
     color_name (str or tuple, optional): The color of the border. This can be a predefined color name 
-                                         ('red', 'green', 'blue', 'yellow', 'black', 'white') or an RGB tuple. 
+                                         ('red', 'green', 'blue', 'yellow', 'black', 'white') or an RGB/RGBA tuple. 
                                          Defaults to 'red'.
 
     Returns:
@@ -51,38 +47,44 @@ def make_borders_colored(image, border_size=30, color_name="red"):
     Raises:
     ValueError: If the border size is too large for the given image dimensions or if the provided color name 
                 is not valid.
-
-    Example usage:
-    image_with_red_border = make_borders_colored(original_image, border_size=50, color_name='red')
-    image_with_custom_border = make_borders_colored(original_image, border_size=50, color_name=(128, 64, 32))
     """
+
     colors = {
-    "red": (255, 0, 0),
-    "green": (0, 255, 0),
-    "blue": (0, 0, 255),
-    "yellow": (255, 255, 0),
-    "black": (0, 0, 0),
-    "white": (255, 255, 255)
+        "red": (255, 0, 0),
+        "green": (0, 255, 0),
+        "blue": (0, 0, 255),
+        "yellow": (255, 255, 0),
+        "black": (0, 0, 0),
+        "white": (255, 255, 255)
     }
-    
+
     if image.shape[0] < 2 * border_size or image.shape[1] < 2 * border_size:
         raise ValueError("Border size is too large for the given image dimensions.")
 
     if color_name in colors:
         border_color = colors[color_name]
-    elif isinstance(color_name, tuple) and len(color_name) == 3:
+    elif isinstance(color_name, tuple) and (len(color_name) == 3 or len(color_name) == 4):
         border_color = color_name
     else:
-        raise ValueError("Invalid color name or RGB value.")
+        raise ValueError("Invalid color name or RGB/RGBA value.")
+
+    channel_count = image.shape[2]  # Number of color channels in the image
+
+    # Ensure border_color matches the image's color channel count
+    if len(border_color) != channel_count:
+        if len(border_color) == 3 and channel_count == 4:
+            border_color = (*border_color, 255)  # Add full opacity to RGB color
+        else:
+            raise ValueError("Color and image channel mismatch.")
 
     # Make a writable copy of the image
     writable_image = np.copy(image)
 
     # Set the border pixels to the specified color
-    writable_image[:border_size, :, :] = border_color  # Top border
-    writable_image[-border_size:, :, :] = border_color  # Bottom border
-    writable_image[:, :border_size, :] = border_color  # Left border
-    writable_image[:, -border_size:, :] = border_color  # Right border
+    writable_image[:border_size, :] = border_color  # Top border
+    writable_image[-border_size:, :] = border_color  # Bottom border
+    writable_image[:, :border_size] = border_color  # Left border
+    writable_image[:, -border_size:] = border_color  # Right border
 
     return writable_image
 
@@ -114,10 +116,13 @@ def add_frame(image, border_size=30, color_name="red", overlay=True):
     framed_image_overlay = add_frame(original_image, border_size=50, color_name='blue', overlay=True)
     framed_image_padded = add_frame(original_image, border_size=50, color_name='green', overlay=False)
     """
-    overlay = bool(overlay)
+#    overlay = bool(overlay)
 
-    if image.shape[2] == 4:
-        raise ValueError("PNG file supported will be added in the next version")
+    if len(image.shape) < 3:
+        raise ValueError("Grayscale pictures supported will be added in a future version")
+
+    # if image.shape[2] == 4:
+    #     raise ValueError("PNG file supported will be added in the next version")
 
     if overlay:
         # Apply colored borders and return the result
