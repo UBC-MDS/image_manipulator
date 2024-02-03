@@ -2,6 +2,21 @@
 
 
 
+## v2.0.7 (2024-02-03)
+
+### Fix
+
+* fix: Fix the doc of select_channel ([`4ea0c37`](https://github.com/UBC-MDS/image_modifier/commit/4ea0c37c676f3251e61bcf688617c39f9b9a3338))
+
+### Unknown
+
+* Merge pull request #66 from UBC-MDS/select_channel_test_doc
+
+Update `Select_channel` test doc ([`a8b94cc`](https://github.com/UBC-MDS/image_modifier/commit/a8b94ccae845522a47e71d6e1057cd812cb16bf4))
+
+* Update the doc of select_channel ([`96c7ba5`](https://github.com/UBC-MDS/image_modifier/commit/96c7ba55e5923e8d63d25cfa9df7da7052eb72db))
+
+
 ## v2.0.6 (2024-02-03)
 
 ### Fix
@@ -42,6 +57,8 @@ updated pyproject.toml file ([`544236d`](https://github.com/UBC-MDS/image_modifi
 ### Fix
 
 * fix: updated rotate function and test cases as per feedback ([`1801568`](https://github.com/UBC-MDS/image_modifier/commit/1801568e5df2131eedf56baed943e78a3352c2b0))
+
+* fix: Add doc/comment to the select_channel function ([`0b1069b`](https://github.com/UBC-MDS/image_modifier/commit/0b1069b497e7cc6b717cda9ba3c000c35729c9ea))
 
 ### Unknown
 
