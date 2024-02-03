@@ -58,7 +58,7 @@ def test_select_channel_isolate_red(sample_image):
     Ensures that when the red channel is isolated using the select_channel function,
     the red channel values are preserved and other channels are set to zero.
     """
-    
+     # Check if only red channel is retained
     result = select_channel(sample_image, 'r', without=False)
     assert np.all(result[:, :, 0] == sample_image[:, :, 0])
     assert np.all(result[:, :, 1:] == 0)
@@ -68,6 +68,7 @@ def test_select_channel_isolate_green(sample_image):
     Ensures that when the green channel is isolated using the select_channel function,
     the green channel values are preserved and other channels are set to zero.
     """
+     # Check if only green channel is retained
     result = select_channel(sample_image, 'g', without=False)
     assert np.all(result[:, :, 1] == sample_image[:, :, 1])
     assert np.all(result[:, :, [0, 2]] == 0)
@@ -77,7 +78,7 @@ def test_select_channel_isolate_blue(sample_image):
     Ensures that when the blue channel is isolated using the select_channel function,
     the blue channel values are preserved and other channels are set to zero.
     """
-    
+     # Check if only blue channel is retained
     result = select_channel(sample_image, 'b', without=False)
     assert np.all(result[:, :, 2] == sample_image[:, :, 2])
     assert np.all(result[:, :, :2] == 0)
