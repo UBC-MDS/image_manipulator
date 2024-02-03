@@ -92,14 +92,14 @@ def make_borders_colored(image, border_size=30, color_name="red"):
 def add_frame(image, border_size=30, color_name="red", overlay=True):
     """
     Adds a frame to an image either by overlaying a colored border or by first padding the image and 
-    then adding a colored border. The function supports only RGB images and not PNG images with alpha channels.
+    then adding a colored border. The function supports both RGB images and PNG images with alpha channels.
 
     If 'overlay' is set to True, the function overlays a colored border on the image without changing its size.
     If 'overlay' is False, the function first adds padding (increasing the image size) and then applies the colored border.
 
     Parameters:
     image (numpy.ndarray): The input image to which the frame will be added. 
-                           It should be a 3-dimensional RGB array.
+                           It should be a 3 or 4-dimensional array.
     border_size (int, optional): The thickness of the border/frame to be added. Defaults to 100 pixels.
     color_name (str or tuple, optional): The color of the border/frame. Can be a predefined color name 
                                          (like 'red', 'green', 'blue', etc.) or an RGB tuple. Defaults to 'red'.
@@ -110,19 +110,15 @@ def add_frame(image, border_size=30, color_name="red", overlay=True):
     numpy.ndarray: The image with the added frame. The size of the output image depends on the 'overlay' flag.
 
     Raises:
-    ValueError: If the input image has an alpha channel (PNG with transparency) or if the color name is invalid.
+    ValueError: If the input image is grayscale or if the color name is invalid.
 
     Example usage:
     framed_image_overlay = add_frame(original_image, border_size=50, color_name='blue', overlay=True)
     framed_image_padded = add_frame(original_image, border_size=50, color_name='green', overlay=False)
     """
-#    overlay = bool(overlay)
 
     if len(image.shape) < 3:
         raise ValueError("Grayscale pictures supported will be added in a future version")
-
-    # if image.shape[2] == 4:
-    #     raise ValueError("PNG file supported will be added in the next version")
 
     if overlay:
         # Apply colored borders and return the result
