@@ -2,11 +2,22 @@
 
 
 
+## v2.0.9 (2024-02-03)
+
+### Unknown
+
+* Merge pull request #67 from UBC-MDS/rotate_updated
+
+fix: updated rotate function to raise errors ([`eb6de8b`](https://github.com/UBC-MDS/image_modifier/commit/eb6de8bb6172b5c9d65355f1c09f9fc6838713fe))
+
+
 ## v2.0.8 (2024-02-03)
 
 ### Fix
 
 * fix: Add JPEG to the text ([`5f11c3f`](https://github.com/UBC-MDS/image_modifier/commit/5f11c3f913b5872ffb14ba35e9296ebf7ea03c10))
+
+* fix: updated rotate function to raise errors ([`44d2c75`](https://github.com/UBC-MDS/image_modifier/commit/44d2c759fe4b10914d483cec37ee280a85e8be5f))
 
 ### Unknown
 
