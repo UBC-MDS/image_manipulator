@@ -2,6 +2,13 @@
 
 
 
+## v2.0.6 (2024-02-03)
+
+### Fix
+
+* fix: logo display on ReadTheDocs ([`a1f2cf4`](https://github.com/UBC-MDS/image_modifier/commit/a1f2cf4a3c5d62afb4f9acce3a7841273b49a345))
+
+
 ## v2.0.5 (2024-02-03)
 
 ### Fix
