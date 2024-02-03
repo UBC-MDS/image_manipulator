@@ -6,6 +6,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/UBC-MDS/image_modifier.svg)](https://github.com/UBC-MDS/image_modifier/commits/main)
 [![GitHub release](https://img.shields.io/github/release/UBC-MDS/image_modifier.svg)](https://github.com/UBC-MDS/image_modifier/releases)
 [![Documentation Status](https://readthedocs.org/projects/image-modifier/badge/?version=latest)](https://image-modifier.readthedocs.io/en/latest/?badge=latest)
+[![codecov](https://codecov.io/gh/UBC-MDS/image_modifier/graph/badge.svg?token=Je2mYFYCUP)](https://codecov.io/gh/UBC-MDS/image_modifier)
 
 ![Created by DALL·E](docs/logo.png?raw=true)
 
