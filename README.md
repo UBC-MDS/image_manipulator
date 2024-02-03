@@ -32,16 +32,25 @@ ImageModifier offers a streamlined and intuitive approach, making it highly acce
 
 **slice_image**: Slicing an image into a specified number of horizontal and vertical slices.
 
+
+## Documentation
+
+The package documentation, including installation instructions, usage examples and API details, is available on ReadTheDocs and accessible [here](https://image-modifier.readthedocs.io/en/latest).
+
+
 ## Installation
+
+### For user
+
+#### Installing the package
 
 ```bash
 $ pip install image_modifier
 ```
 
-## Usage
+### For developer
 
-
-### Setting up the Project
+#### Setting up the project
 
 Clone the repository to your local machine:
 
@@ -50,15 +59,10 @@ $ git clone https://github.com/UBC-MDS/image_modifier
 $ cd image_modifier/
 ```
 
-Create the environment:
+Create and activate the virtual environment:
 
 ```bash
 $ conda env create -f image_modifier.yml
-```
-
-Activate the virtual environment:
-
-```bash
 $ conda activate image_modifier
 ```
 
@@ -68,7 +72,7 @@ Install the packages via poetry:
 $ poetry install
 ```
 
-### Run Unit Tests
+#### Running unit tests
 
 To run unit tests to ensure the functionality of the modifications, execute:
 
@@ -82,7 +86,9 @@ To include code coverage reporting, can also run:
 $ poetry run pytest --cov=image_modifier
 ```
 
-### **Importing Libraries and Image**
+## Usage
+
+### **Importing libraries and image**
 
 The following code can be used to import libraries and an image in python.
 
@@ -95,9 +101,7 @@ The following code can be used to import libraries and an image in python.
 >>> image_ary = np.array(image)
 ```
 
-### **Function Usage**
-
-image_modifier has four functions to modify an image.
+### **Function usage**
 
 #### **Rotate the image by 90 degree clockwise**
 
@@ -134,9 +138,14 @@ image_modifier has four functions to modify an image.
 >>> slices = slice_image(image_ary, horizontal_slices=2, vertical_slices=2)
 ```
 
-## Documentation
+### **Usage examples**
 
-Online documentation and tutorial can be found [here](https://image-modifier.readthedocs.io/en/latest/example.html)
+Detailed usage examples can be found [here](https://image-modifier.readthedocs.io/en/latest/example.html).
+
+
+## Position within the Python ecosystem
+
+ImageModifier bridges the gap between highly complex image processing libraries and the need for straightforward, user-friendly image manipulation tools. Its focus on core image processing functionalities—such as rotating, slicing, adding frames, and adjusting RGB channels. While Python boasts powerful image processing libraries like OpenCV and PIL/Pillow, these can often be overwhelming for beginners or overkill for simple tasks. ImageModifier's simplicity makes it an attractive starting point for newcomers to image processing, as well as a quick and efficient tool for experienced users needing to perform routine tasks without the overhead of more complex libraries.
 
 ## Contributing
 
